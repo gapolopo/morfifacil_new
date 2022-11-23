@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 //var session = require('express-session');
 var session = require('cookie-session');
+var RedisStore = require('connect-redis')(express);
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
