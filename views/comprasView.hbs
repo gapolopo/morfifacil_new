@@ -1,0 +1,53 @@
+
+
+<div class="holder  justify-content-center">
+
+  <div class="columnas">
+    <section class="Bienvenidos">
+      <h2>Compras</h2>
+      <br>
+      <img src="/images/comprasView.png" class="img-fluid" alt="Lista de compras">
+    </section>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <div class="holder">
+    {{#if error}}
+      <div class="alert alert-primary" role="alert">
+        <h5><i class="fa-solid fa-circle-exclamation"></i> {{message}} </h5>
+      </div>
+    {{/if}}
+  <form method="post" action="/compras/bd">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">item</th>
+        <th scope="col">cantidad</th>
+        <th scope="col">medida</th>
+        <th scope="col">nota</th>
+        <th scope="col">seleccionar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each compras}}
+      <tr>
+        <th scope="row">{{id_cpra}}</th>
+        <td>{{item}}</td>
+        <td>{{cantidad}}</td>
+        <td>{{medida}}</td>
+        <td>{{nota}}</td>
+        <td><input type="radio" name="rseleccion" value="{{id_cpra}}">&nbsp;</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="submit" class="first btn btn-success" value="compra realizada" id="boton" name="boton" onclick="if (!confirm('¿Está seguro que realizó la compra?')) { return false }">Compra realizada</button> &nbsp; <button type="submit" class="first btn btn-success" value="borrar compra" id="boton" name="boton" onclick="if (!confirm('¿Está seguro que quiere eliminar este ítem de la lista?')) { return false }">Eliminar ítem</button>
+  </div>
+  <br>
+</form>
+</div>
+</div>

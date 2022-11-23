@@ -1,0 +1,89 @@
+
+
+<div class="holder  justify-content-center">
+
+  <div class="columnas">
+    <section class="Bienvenidos">
+      <br>
+      <h2>Recetas</h2>
+      <br>
+      <img src="/images/recetas.png" class="img-fluid" alt="Empanadas">
+    </section>
+  </div>
+  <div class="columnas">
+      <section class="Bienvenidos">
+        <br>
+        Hola {{perfil}} {{nombre}}!
+        <br><br>
+        Desde aquí podes agregar recetas nuevas, modificar existentes y borrar las que ya no sean necesarias.
+        <br>
+        </p>
+      </section>
+    </div>
+
+  <div class="holder">
+
+    {{#if error}}
+      <div class="alert alert-primary" role="alert">
+        <h5><i class="fa-solid fa-circle-exclamation"></i> {{message}} </h5>
+      </div>
+    {{/if}}
+
+    <form method="post" action="/recetas/nuevo">
+    {{#each recetaSel}}
+      <div class="mb-3">
+        <label for="denominacion" class="form-label">Nombre de la comida</label>
+        <input type="text" class="form-control" name="denominacion" id="denominacion" aria-describedby="emailHelp"  value="{{denominacion}}" placeholder="Aquí va el nombre de la receta">
+      </div>
+      <div class="mb-3">
+        <label for="receta" class="form-label">Receta</label>
+        <textarea class="form-control" rows="15" name="receta" id="receta" aria-label="With textarea" placeholder="Aquí va la receta">{{receta}}</textarea>
+      </div>
+      <div class="mb-3">
+          <input type="hidden" name="id_rec" value="{{id_rec}}">
+          <button type="submit" class="btn btn-primary ">Guardar</button>
+      </div>
+    {{/each}}
+    </form>
+  </div>
+  <br>
+  <br>
+
+
+  <div class="columnas">
+    <section class="Bienvenidos">
+      <br>
+      <h2>Listado de recetas</h2>
+      <br>
+    </section>
+  </div>
+
+  <form method="post" action="/recetas/bm">
+  <div class="holder">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Denominación</th>
+        <th scope="col">ver</th>
+        <th scope="col">seleccionar</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each recetas}}
+      <tr>
+        <th scope="row">{{id_rec}}</th>
+        <td width="80%">{{denominacion}}</td>
+        <td width="10%" align="center"><a target="_blank" href="/recetas/vista/?id_rec={{id_rec}}" class="btn btn-primary btn-sm" tabindex="-1" role="button" aria-disabled="true">-></a>
+        <td width="10%" align="right"><input type="radio" name="rseleccion" checked="checked" value="{{id_rec}}">&nbsp;</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+  </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="submit" class="first btn btn-success" value="borrar" id="boton" name="boton" onclick="if (!confirm('Está seguro?')) { return false }">Borrar</button> &nbsp;   <button type="submit" class="btn btn-primary" value="modificar" id="boton" name="boton">Modificar</button>
+  </div>
+  <br>
+</form>
+</div>

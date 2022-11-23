@@ -1,0 +1,23 @@
+C:\xampp\htdocs\morfifacil\MorfiFacil>heroku create -a morfifacil-app
+Creating ⬢ morfifacil-app... done
+https://morfifacil-app.herokuapp.com/ | https://git.heroku.com/morfifacil-app.git
+
+C:\xampp\htdocs\morfifacil\MorfiFacil>git remote -v
+origin  https://github.com/gapolopo/morfifacil.git (fetch)
+origin  https://github.com/gapolopo/morfifacil.git (push)
+
+C:\xampp\htdocs\morfifacil\MorfiFacil>heroku git:remote -a morfifacil-app
+set git remote heroku to https://git.heroku.com/morfifacil-app.git
+
+
+
+mysql://bd20a3986b00c9:224d5adf@us-cdbr-east-06.cleardb.net/heroku_750ced5f994b812?reconnect=true
+
+bd20a3986b00c9
+224d5adf
+us-cdbr-east-06.cleardb.net/heroku_750ced5f994b812?reconnect=true
+
+
+
+
+C:\wamp64\bin\mysql\mysql5.7.36

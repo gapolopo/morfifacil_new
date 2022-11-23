@@ -1,0 +1,54 @@
+
+<div class="holder justify-content-center">
+
+  <div class="columnas">
+    <section class="Bienvenidos">
+      <br>
+      <h2>Recetas</h2>
+      <br>
+      <img src="/images/recetasView.png" class="img-fluid" alt="Empanadas">
+    </section>
+  </div>
+  <div class="columnas">
+      <section class="Bienvenidos">
+        <br>
+        Hola {{perfil}} {{nombre}}!
+        <br><br>
+        Desde aquí podes visualizar todas las recetas cargadas.
+        <br>
+        </p>
+      </section>
+    </div>
+    <br>
+    <br>
+    <div class="holder">
+      <form method="get" action="/recetas/vista">
+        <label for="id_rec" class="form-label">Seleccione la receta</label>
+        <select name="id_rec" class="form-select form-select-lg mb-3" aria-label=".form-select-lg ">
+          {{#each recetas}}
+              <option value="{{id_rec}}">{{denominacion}}</option>
+          {{/each}}
+        </select>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="submit" class="btn btn-primary justify-content-right">Visualizar</button>
+        </div>
+      </form>
+    </div>
+
+  <br>
+  <br>
+  <br>
+  {{#each recetaSel}}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title justify-content-center">{{denominacion}}</h5>
+      <p class="card-text">{{receta}}</p>
+    </div>
+  </div
+  {{/each}}
+  <br>
+  <br>
+  <br>
+
+</div>

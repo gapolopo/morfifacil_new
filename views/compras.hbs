@@ -1,0 +1,65 @@
+
+
+<div class="holder  justify-content-center">
+
+  <div class="columnas">
+    <section class="Bienvenidos">
+      <br>
+      <h2>Listado de compras</h2>
+      <br>
+      <img src="/images/compras.png" class="img-fluid" alt="lista de compras">
+    </section>
+  </div>
+  <div class="columnas">
+      <section class="Bienvenidos">
+        <br>
+        Hola {{perfil}} {{nombre}}!
+        <br><br>
+        Desde aquí podes agregar items a tu lista de compras.
+        <br>
+        </p>
+      </section>
+    </div>
+
+  <div class="holder">
+    {{#if error}}
+      <div class="alert alert-primary" role="alert">
+        <h5><i class="fa-solid fa-circle-exclamation"></i> {{message}} </h5>
+      </div>
+    {{/if}}
+
+    <form method="post" action="/compras/new">
+      <div class="mb-3">
+        <label for="denominacion" class="form-label">Item</label>
+        <input type="text" class="form-control" name="item" id="item" aria-describedby="emailHelp" placeholder="Que te hace falta comprar?">
+      </div>
+      <div class="mb-3">
+        <label for="receta" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" name="cantidad" id="cantidad" aria-describedby="emailHelp" placeholder="Que cantidad?">
+      </div>
+      <div class="mb-3">
+        <label for="medida" class="form-label">Medida</label>
+        <select class="form-select" name="medida" id="medida" aria-label="Default select example">
+          <option value="unidades">unidades</option>
+          <option value="gramos">gramos</option>
+          <option value="kilogramos">kilogramos</option>
+          <option value="cm3">cm3</option>
+          <option value="litros">litros</option>
+          <option value="cm">cm</option>
+          <option value="metros">metros</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="nota" class="form-label">Nota</label>
+        <textarea class="form-control" rows="4" name="nota" id="nota" aria-label="With textarea" placeholder="Una nota adicional"></textarea>
+      </div>
+      <div class="mb-3">
+          <input type="hidden" name="id_rec" ">
+          <button type="submit" class="btn btn-primary ">Agregar</button>
+      </div>
+    </form>
+  </div>
+  <br>
+  <br>
+
+</div>
