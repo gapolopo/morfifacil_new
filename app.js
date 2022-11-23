@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
-var session = require('express-session');
+//var session = require('express-session');
+var session = require('cookie-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -10,7 +11,7 @@ require('dotenv').config();
 var pool = require('./modelos/db');
 
 var app = express();
-
+/*
 app.use(session({
     name : 'morfifacil',
     secret : '123j12j3ñ12j3j12ñj3ñ21j3ñjkñj3ñ1',
@@ -20,6 +21,22 @@ app.use(session({
             maxAge:(1000 * 60 * 100)
     }
 }));
+*/
+
+//-momery unleaked---------
+app.set('trust proxy', 1);
+
+app.use(session({
+cookie:{
+    secure: true,
+    maxAge:60000
+       },
+store: new RedisStore(),
+secret: 'secret',
+saveUninitialized: true,
+resave: false
+}));
+
 
 
 // ---------------- Middleware Secured -------------------------
