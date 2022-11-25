@@ -1,8 +1,8 @@
 var createError = require('http-errors');
+//var http = require('http');
+var cookieSession = require('cookie-session')
 var express = require('express');
 //var session = require('express-session');
-var session = require('cookie-session');
-var RedisStore = require('connect-redis')(express);
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -12,6 +12,11 @@ require('dotenv').config();
 var pool = require('./modelos/db');
 
 var app = express();
+
+
+//app.use(express.cookieParser());
+//app.use(express.session({ secret: "sdsdsfdsdssdfewwwwwxw32e3433n2j5676354365R7%$&%", store: new RedisStore }));
+
 /*
 app.use(session({
     name : 'morfifacil',
@@ -24,19 +29,12 @@ app.use(session({
 }));
 */
 
-//-momery unleaked---------
-app.set('trust proxy', 1);
+app.set('trust proxy', 1) // trust first proxy
 
-app.use(session({
-cookie:{
-    secure: true,
-    maxAge:60000
-       },
-store: new RedisStore(),
-secret: 'secret',
-saveUninitialized: true,
-resave: false
-}));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}))
 
 
 
