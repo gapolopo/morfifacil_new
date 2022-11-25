@@ -7,7 +7,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
     "connect-redis": "^6.1.3",
