@@ -1,2 +1,3 @@
-bin
-privado.txt
+backend/in
+backend/node_modules
+frontend/node_modules
